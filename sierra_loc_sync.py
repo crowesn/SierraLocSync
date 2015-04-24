@@ -17,7 +17,7 @@ def SessionLogin(sessionpass):#choose mil session; cat, acq, etc
   tn.expect('@uclid.uc.edu\'s password:')
   fout = file('mylog.txt','w')
   tn.logfile = fout
-  tn.logfile = sys.stdout  
+#  tn.logfile = sys.stdout  
   #get credentials and pass to server
   tn.send(sessionpass + "\n")
   tn.expect("Choose one")
@@ -66,6 +66,9 @@ tn.send('a') #Choose type of record to be examined
 sleep(5)
 tn.send('y') #Begin Processing?
 sleep(5)
-tn.expect('space')
+tn.expect('Press <SPACE> to continue')
+tn.send(chr(32))
+sleep(5)
+tn.send('qqqq')
 #exit telnet
 
